@@ -4,9 +4,8 @@ RUN apt-get -y update && apt-get install -y mariadb-server
 
 EXPOSE 3306
 
-COPY ./conf/mysql.cnf /etc/mysql/mariadb.conf.d/
-COPY ./tools /var/www/
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-RUN service mysql start && mysql < /var/www/dbsetup.sql && rm -rf /var/www/dbsetup.sql;
+COPY ./tools/dbsetup.sh /
 
-CMD ["mysqld"]
+CMD ["./dbsetup.sh"]
