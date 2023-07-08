@@ -45,3 +45,17 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 docker run hello-world
+
+#creating volume folders
+
+cd /home/$USER
+
+mkdir data
+
+cd data
+
+mkdir wordpress
+
+mkdir mariadb
+
+cd /home/$USER/Documents

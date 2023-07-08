@@ -1,24 +1,17 @@
 #!/bin/bash
 
-	sed -i "s/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/" "/etc/php/7.3/fpm/pool.d/www.conf";
-	chown -R www-data:www-data /var/www/*;
-	chown -R 755 /var/www/*;
-	mkdir -p /run/php/;
-	touch /run/php/php7.3-fpm.pid;
+# if [ -f "/var/www/wordpress/wp-config.php" ]; then
+# 	echo "${WP_URL} already created"
+# else
+	cp -f /tmp/wp-config.php /var/www/wordpress/
+	chmod 644 /var/www/wordpress/wp-config.php;
+	# create administrator
+	wp core install --url=${WP_URL} --title=${WP_TITLE}--admin_name=${WP_ADMIN_LOGIN} --admin_email=${WP_ADMIN_EMAIL} --admin_password=${WP_ADMIN_PASSWORD} --allow-root
+	# Create user
+	wp user create ${WP_USER_LOGIN} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD} --allow-root
+# fi
 
-if [ ! -f /var/www/html/wp-config.php ]; then
-	echo "Wordpress: setting up..."
-	mkdir -p /var/www/html
-	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;
-	chmod +x wp-cli.phar;
-	mv wp-cli.phar /usr/local/bin/wp;
-	cd /var/www/html;
-	wp core download --allow-root;
-	mv /var/www/wp-config.php /var/www/html/
-	echo "Wordpress: creating users..."
-	wp core install --allow-root --url=${WP_URL} --title=${WP_TITLE} --admin_user=${WP_ADMIN_LOGIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
-	wp user create --allow-root ${WP_USER_LOGIN} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD};
-	echo "Wordpress: set up!"
-fi
+service php7.3-fpm start;
+service php7.3-fpm stop;
 
-exec "$@"
+php-fpm7.3 -F -R;
