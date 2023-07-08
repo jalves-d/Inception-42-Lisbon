@@ -1,32 +1,32 @@
 FROM debian:bullseye
 
-RUN apt-get update -y
+RUN apt update -y
 
 # installing wordpress
 # https://make.wordpress.org/hosting/handbook/server-environment/#system-packages
-RUN apt-get install -y php7.3
-RUN apt-get install -y php7.3-fpm
-                   php7.3-mysql \
-                   php7.3-json \
-                   php7.3-common \
-                   php7.3-mbstring \
-                   php7.3-curl \
-                   php7.3-dom \
-                   php7.3-exif \
-                   php7.3-fileinfo \
-                   php7.3-imagick \
-				   php7.3-cli \
-                   php7.3-xml \
-                   php7.3-zip
+RUN apt install -y php \
+                   php-fpm \
+                   php-mysql \
+                   php-json \
+                   php-common \
+                   php-mbstring \
+                   php-curl \
+                   php-dom \
+                   php-exif \
+                   php-fileinfo \
+                   php-imagick \
+				   php-cli \
+                   php-xml \
+                   php-zip
 # installing netcat
-RUN apt-get install -y netcat
+RUN apt install -y netcat
 # installing curl
-RUN apt-get install -y curl
+RUN apt install -y curl
 # installing vim
-RUN apt-get install -y vim
+RUN apt install -y vim
 
 # setting the right conf file for php
-COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
 RUN mkdir -p /var/www/wordpress
 WORKDIR /var/www/wordpress
@@ -39,7 +39,7 @@ RUN wp core download --allow-root
 
 # create server root dir
 COPY ./tools/wp-config.php /tmp/
-# copying wordpress-setup.sh to the container
+# copying wp-setup.sh to the container
 COPY ./tools/wp_setup.sh /tmp/
 
 CMD ["/bin/bash", "/tmp/wp_setup.sh"]

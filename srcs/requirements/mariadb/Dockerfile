@@ -3,6 +3,7 @@ FROM debian:bullseye
 RUN apt-get update \
     && apt-get install -y mariadb-server procps \
     && apt-get upgrade -y
+
 RUN rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove
 

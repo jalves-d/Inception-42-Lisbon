@@ -47,7 +47,7 @@ define( 'DB_COLLATE', '' );
  * This will force all users to have to log in again.
  *
  * @since 2.6.0
- */
+ 
 define('AUTH_KEY',         '{<y]g~!utCyN-eN3*@D@C[A$.3Z|u{>t5IP*Z:OleAF)x(Yo3~b[:$#]2-^-[7m5');
 define('SECURE_AUTH_KEY',  '|FI]]A:_x-d&o>[aR[za}o-mot(wBOG?GgDNvF>+j:rL2AwPep)?739/[9h@H%+|');
 define('LOGGED_IN_KEY',    ')H_{jTdgO8Nu?8TZ7S@n0z9d%1pFWG)@{==hu!39ED+Bkp^)yc2TMB#h#wd&SA`,');
@@ -56,7 +56,7 @@ define('AUTH_SALT',        'NutZ ,3VABaXy4eu{8{Wj;qgjEocTwOiF:{u:fU={&+h7|#`GKM)
 define('SECURE_AUTH_SALT', 'Pb|nhjMH=$dMn4F%9E>?>f-zk<#/@)f4;A)+$X@selI98?K2lM m.<*=wI ~vZuC');
 define('LOGGED_IN_SALT',   'l6P+y8__l2q<Yh/F=>Vm8Y>g-:5]Cn*|&T+Cnp-IY*!NI!RVtN_e.N2v0|s>5V~X');
 define('NONCE_SALT',       '5)iM[in!hky+*Malpj#RzH,J+/)%5{4s>^%:;(]foc<h+[{;i~XND&S?y=P|i{5]');
-/**#@-*/
+*#@-*/
 
 /**
  * WordPress database table prefix.
