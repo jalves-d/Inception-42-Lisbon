@@ -9,6 +9,8 @@ RUN rm -rf /var/lib/apt/lists/* \
 
 RUN mkdir -p /var/lib/mysql
 
+EXPOSE 3306
+
 COPY ./tools/dbsetup.sh /usr/local/bin/dbsetup.sh
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d
 

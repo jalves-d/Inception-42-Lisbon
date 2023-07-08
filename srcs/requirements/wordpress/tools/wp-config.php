@@ -47,16 +47,16 @@ define( 'DB_COLLATE', '' );
  * This will force all users to have to log in again.
  *
  * @since 2.6.0
- 
-define('AUTH_KEY',         '{<y]g~!utCyN-eN3*@D@C[A$.3Z|u{>t5IP*Z:OleAF)x(Yo3~b[:$#]2-^-[7m5');
-define('SECURE_AUTH_KEY',  '|FI]]A:_x-d&o>[aR[za}o-mot(wBOG?GgDNvF>+j:rL2AwPep)?739/[9h@H%+|');
-define('LOGGED_IN_KEY',    ')H_{jTdgO8Nu?8TZ7S@n0z9d%1pFWG)@{==hu!39ED+Bkp^)yc2TMB#h#wd&SA`,');
-define('NONCE_KEY',        'vx0HO!-emX|Q0?d}l|g|Uod?-%Jx4l7;JmD:4_82|UM;.av]S~[jEH}/v3H#]^B[');
-define('AUTH_SALT',        'NutZ ,3VABaXy4eu{8{Wj;qgjEocTwOiF:{u:fU={&+h7|#`GKM)~h!u<GJ=JmBG');
-define('SECURE_AUTH_SALT', 'Pb|nhjMH=$dMn4F%9E>?>f-zk<#/@)f4;A)+$X@selI98?K2lM m.<*=wI ~vZuC');
-define('LOGGED_IN_SALT',   'l6P+y8__l2q<Yh/F=>Vm8Y>g-:5]Cn*|&T+Cnp-IY*!NI!RVtN_e.N2v0|s>5V~X');
-define('NONCE_SALT',       '5)iM[in!hky+*Malpj#RzH,J+/)%5{4s>^%:;(]foc<h+[{;i~XND&S?y=P|i{5]');
-*#@-*/
+*/ 
+define('AUTH_KEY',         'hS&pkv|%.zzNR?GoVxm$&A.~Z98bN;MM)`am*)U@,l@x=+=7K#BzyF~b{t(jBzm_');
+	define('SECURE_AUTH_KEY',  'D]FOd-;0ep5)&%6H!r57g*J>2[6m)]ffa*A&Z`h}dT.PH.z$Rk*ikij0|Q`$qg_C');
+	define('LOGGED_IN_KEY',    'Y? W*5UROAUd;OZz}M*}<H!$))hcZv8/(p(oSVk}Z;irsow#^.syi WGfE>OY)+>');
+	define('NONCE_KEY',        'BrbsE!%`u@6EU(+Nj_,T??[VaSq&W~K:W94Qr!fVmIjAx-7iz+f-!pZ3^t&I?d|g');
+	define('AUTH_SALT',        ':<?uVsg/R3J}fx5]:/Wy-OI7q}-BF`%cT|q0X7m[?ygWX!Ug~X;IvJ|S7i3h+Sqa');
+	define('SECURE_AUTH_SALT', '9bUf*%|U^^@|4bfaWJo,4##I_/-Jmh)#>ia_bqo>/(U;o@e6cE)D6&C{Ea=ylcmu');
+	define('LOGGED_IN_SALT',   'z%mrw+Rybu&1qt<n-@dO}YFn%h!Mk1BHN-S1X@TJ$~f(:Pn^eb+C;zcwn<qh=CsB');
+	define('NONCE_SALT',       '+/3mi-0mbZ_y=L0f|HE zn|3l0#2]qDh|Or XH)7kF<!sG@LJ*F0/B0$`<xA.)Fz');
+/*#@-*/
 
 /**
  * WordPress database table prefix.

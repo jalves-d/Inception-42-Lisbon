@@ -4,7 +4,6 @@ RUN apt-get -y update && apt-get -y install nginx openssl
 
 EXPOSE 443
 
-
 # create server root dir
 RUN mkdir -p /var/www/wordpress
 

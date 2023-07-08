@@ -25,21 +25,24 @@ RUN apt install -y curl
 # installing vim
 RUN apt install -y vim
 
+EXPOSE 9000
+
 # setting the right conf file for php
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
 RUN mkdir -p /var/www/wordpress
-WORKDIR /var/www/wordpress
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
-RUN wp core download --allow-root
-
 # create server root dir
 COPY ./tools/wp-config.php /tmp/
 # copying wp-setup.sh to the container
 COPY ./tools/wp_setup.sh /tmp/
+
+WORKDIR /var/www/wordpress
+
+RUN wp core download --allow-root
 
 CMD ["/bin/bash", "/tmp/wp_setup.sh"]

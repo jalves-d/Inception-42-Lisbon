@@ -26,6 +26,8 @@ services:
     build: ./requirements/mariadb
     env_file:
       - .env
+    expose:
+      - "3306"
     volumes:
       - db:/var/lib/mysql
     networks:
@@ -37,6 +39,8 @@ services:
     build: ./requirements/wordpress
     env_file:
       - .env
+    expose:
+      - "9000"
     depends_on:
       - mariadb
     volumes:
