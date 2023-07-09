@@ -25,9 +25,8 @@ mariadb --user=root << _EOF_
 UPDATE mysql.user SET Password=PASSWORD('$db_adminpass') WHERE User='root';
 UPDATE mysql.user SET plugin='mysql_native_password' WHERE user='root' AND host='localhost';
 DELETE FROM mysql.user WHERE User='';
-DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
 DROP DATABASE IF EXISTS test;
+DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
 FLUSH PRIVILEGES;
 _EOF_
 
@@ -35,9 +34,8 @@ chown -R mysql:mysql /var/lib/mysql
 
 mariadb --user=root --password=$db_adminpass << _EOF_
 CREATE DATABASE IF NOT EXISTS $db_name;
-CREATE USER IF NOT EXISTS '$db_user'@'%' IDENTIFIED BY '$db_password';
-GRANT ALL PRIVILEGES ON $db_name.* TO '$db_user'@'%';
-GRANT USAGE ON *.* TO '$db_user'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$db_adminpass';
+GRANT ALL PRIVILEGES ON $db_name.* TO '$db_user'@'%' IDENTIFIED BY '$db_password' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 _EOF_
 

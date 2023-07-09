@@ -20,16 +20,16 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress' );
+define( 'DB_NAME', getenv('db_name') );
 
 /** Database username */
-define( 'DB_USER', 'jalves-d' );
+define( 'DB_USER', getenv('db_user') );
 
 /** Database password */
-define( 'DB_PASSWORD', '12345' );
+define( 'DB_PASSWORD', getenv('db_password') );
 
 /** Database hostname */
-define( 'DB_HOST', 'mariadb' );
+define( 'DB_HOST', getenv('db_host') );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -47,7 +47,7 @@ define( 'DB_COLLATE', '' );
  * This will force all users to have to log in again.
  *
  * @since 2.6.0
-*/ 
+
 define('AUTH_KEY',         'hS&pkv|%.zzNR?GoVxm$&A.~Z98bN;MM)`am*)U@,l@x=+=7K#BzyF~b{t(jBzm_');
 	define('SECURE_AUTH_KEY',  'D]FOd-;0ep5)&%6H!r57g*J>2[6m)]ffa*A&Z`h}dT.PH.z$Rk*ikij0|Q`$qg_C');
 	define('LOGGED_IN_KEY',    'Y? W*5UROAUd;OZz}M*}<H!$))hcZv8/(p(oSVk}Z;irsow#^.syi WGfE>OY)+>');
@@ -56,7 +56,7 @@ define('AUTH_KEY',         'hS&pkv|%.zzNR?GoVxm$&A.~Z98bN;MM)`am*)U@,l@x=+=7K#Bz
 	define('SECURE_AUTH_SALT', '9bUf*%|U^^@|4bfaWJo,4##I_/-Jmh)#>ia_bqo>/(U;o@e6cE)D6&C{Ea=ylcmu');
 	define('LOGGED_IN_SALT',   'z%mrw+Rybu&1qt<n-@dO}YFn%h!Mk1BHN-S1X@TJ$~f(:Pn^eb+C;zcwn<qh=CsB');
 	define('NONCE_SALT',       '+/3mi-0mbZ_y=L0f|HE zn|3l0#2]qDh|Or XH)7kF<!sG@LJ*F0/B0$`<xA.)Fz');
-/*#@-*/
+#@-*/
 
 /**
  * WordPress database table prefix.
@@ -79,7 +79,7 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
-
+define( 'WP_DEBUG_LOG', '/var/www/wordpress/wp-errors.log' );
 /* Add any custom values between this line and the "stop editing" line. */
 
 
