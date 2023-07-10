@@ -7,7 +7,9 @@ RUN apt-get update \
 RUN rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove
 
-RUN mkdir -p /var/lib/mysql
+RUN mkdir -p /var/lib/mysql /var/run/mysqld \
+    && chown -R mysql:mysql /var/lib/mysql /var/run/mysqld \
+    && chmod 777 /var/run/mysqld
 
 EXPOSE 3306
 

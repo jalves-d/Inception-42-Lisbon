@@ -7,7 +7,7 @@ NGINX_LOGS=/home/${DOMAIN_USER}/data/logs/nginx
 TOOLS = ./srcs/requirements/tools
 
 all:	persistent_storage
-	@docker compose -f $(DCOMPOSE_FILE) --env-file $(ENV_FILE) up -d
+	@docker compose -f $(DCOMPOSE_FILE) --env-file $(ENV_FILE) up -d --build
 	@sudo sed -i '/42.fr/d' /etc/hosts
 	@chmod +x $(TOOLS)/hosts.sh
 	@$(TOOLS)/hosts.sh $(DOMAIN_USER)
@@ -23,6 +23,9 @@ fclean: clean
 	@sudo sed -i '/42.fr/d' /etc/hosts
 	@docker image prune -a -f
 	@docker system prune -a
+
+down:
+	@docker compose -f $(DCOMPOSE_FILE) down;
 
 re: fclean all
 
